@@ -118,7 +118,6 @@ a {
     top: 100%;
     right: 0;
     background-color: white;
-    width: 300px;
     border-radius: 5px;
     gap: 0;
     z-index: -1;
@@ -136,7 +135,7 @@ a {
 
   .landing .header ul li {
     padding: 20px;
-    color: red;
+    color: black;
   }
 
   .landing .header ul a:not(:last-of-type) {
