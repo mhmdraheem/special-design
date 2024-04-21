@@ -15,7 +15,65 @@
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-    <div class="landing">
+    <div class="settings-bar">
+      <button class="visibility-btn">
+        <i class="fa-solid fa-gear"></i>
+      </button>
+      <div class="setting">
+        <span>Colors</span>
+        <div class="color">
+          <ul>
+            <li style="background-color: #ff9800" class="active"></li>
+            <li style="background-color: #e91e63"></li>
+            <li style="background-color: #009688"></li>
+            <li style="background-color: #03a9f4"></li>
+            <li style="background-color: #4caf50"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="setting">
+        <span>Random Backgrounds</span>
+        <div class="backgrounds">
+          <input type="radio" name="random-backgrounds" id="random-bg" value="true" checked />
+          <label for="random-bg">Yes</label>
+          <input type="radio" name="random-backgrounds" id="static-bg" value="false" />
+          <label for="static-bg">No</label>
+        </div>
+      </div>
+      <div class="setting">
+        <span>Show Bullets</span>
+        <div class="show-bullets">
+          <input type="radio" name="show-bullets" id="show-bullets" value="true" checked />
+          <label for="show-bullets">Yes</label>
+          <input type="radio" name="show-bullets" id="hide-bullets" value="false" />
+          <label for="hide-bullets">No</label>
+        </div>
+      </div>
+      <button class="reset-btn">Reset Options</button>
+    </div>
+    <div class="bullets">
+      <ul>
+        <a href="#about">
+          <li section="About Us"></li>
+        </a>
+        <a href="#skills">
+          <li section="Our Skills"></li>
+        </a>
+        <a href="#gallery">
+          <li section="Our Gallery"></li>
+        </a>
+        <a href="#timeline">
+          <li section="Timeline"></li>
+        </a>
+        <a href="#features">
+          <li section="Features"></li>
+        </a>
+        <a href="#testimonials">
+          <li section="Testimonials"></li>
+        </a>
+      </ul>
+    </div>
+    <div class="landing" style="background-image: url('../img/01.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="header">
@@ -53,6 +111,7 @@
       </div>
     </div>
   </body>
-  <script src="index.js" type="module"></script>
-  <script src="components.js" type="module"></script>
+  <script src="js/index.js" type="module"></script>
+  <script src="js/components.js" type="module"></script>
+  <script src="js/storageManager.js" type="module"></script>
 </html>

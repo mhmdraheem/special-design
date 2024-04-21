@@ -51,6 +51,173 @@ a {
 }
 /* end of components */
 
+/* start of settings bar */
+.settings-bar {
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: -180px;
+  width: 180px;
+  height: 100vh;
+  background-color: white;
+  z-index: 1;
+  transition: 0.3s;
+}
+
+.settings-bar.visible {
+  left: 0px;
+}
+
+.settings-bar .visibility-btn {
+  width: 25px;
+  height: 25px;
+  border: none;
+  background-color: white;
+  position: absolute;
+  top: 100px;
+  right: -25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings-bar .visibility-btn i {
+  font-size: 15px;
+  animation-name: rotation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-play-state: paused;
+}
+
+.settings-bar .visibility-btn i.active {
+  animation-play-state: running;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.settings-bar .setting {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #eee;
+  margin-bottom: 10px;
+}
+
+.settings-bar .setting > span {
+  font-size: 13px;
+  color: #666;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.settings-bar .setting .color ul {
+  display: flex;
+  gap: 10px;
+}
+
+.settings-bar .setting .color ul li {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.settings-bar .setting .color ul li.active {
+  outline: 3px solid white;
+}
+
+.settings-bar .setting .backgrounds input,
+.settings-bar .setting .show-bullets input {
+  appearance: none;
+  display: none;
+}
+
+.settings-bar .setting .backgrounds input:checked + label,
+.settings-bar .setting .show-bullets input:checked + label {
+  background-color: rgb(255, 165, 0);
+}
+
+.settings-bar .setting .backgrounds label,
+.settings-bar .setting .show-bullets label {
+  background-color: rgb(255, 165, 0, 0.5);
+  color: white;
+  padding: 2px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.settings-bar .reset-btn {
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  background-color: #f44336;
+  padding: 10px 0;
+  cursor: pointer;
+}
+/* end of settings bar */
+
+/* start of bullets */
+.bullets {
+  position: fixed;
+  top: 50%;
+  right: 10px;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.bullets ul li {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 3px solid var(--active-color);
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.bullets ul li:hover::before {
+  content: attr(section);
+  width: 120px;
+  height: 20px;
+  position: absolute;
+  top: -7px;
+  left: -135px;
+  padding: 5px 0;
+  color: white;
+  background-color: var(--active-color);
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bullets ul li:hover::after {
+  content: "";
+  position: absolute;
+  top: -0;
+  left: -15px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent transparent var(--active-color);
+}
+/* end of bullets */
+
 /* start of landing section */
 .landing {
   height: 100vh;
@@ -85,14 +252,22 @@ a {
   font-size: 17px;
 }
 
+.landing .header .nav i {
+  cursor: pointer;
+}
+
 .landing .header .nav ul {
   display: flex;
   gap: 20px;
 }
 
-.landing .header .nav ul a {
+.landing .header .nav ul li {
   color: white;
   transition: 0.3s;
+}
+
+.landing .header .nav ul li:hover {
+  color: var(--active-color);
 }
 
 .landing .header .nav .nav-icon {
@@ -133,9 +308,9 @@ a {
     border-color: transparent transparent white transparent;
   }
 
-  .landing .header ul li {
+  .landing .header .nav ul li {
     padding: 20px;
-    color: black;
+    color: var(--active-color);
   }
 
   .landing .header ul a:not(:last-of-type) {
@@ -157,5 +332,9 @@ a {
 
 .landing .landing-txt p {
   font-size: 20px;
+}
+
+.colorable {
+  color: var(--active-color);
 }
 /* end of landing section */
