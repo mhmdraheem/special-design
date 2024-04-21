@@ -200,3 +200,19 @@ onClickOutside(ul, (event) => {
   }
 });
 /* end landing section */
+
+/* start skills section */
+
+window.onscroll = () => {
+  const { bottom } = document.querySelector(".skills").getBoundingClientRect();
+  if (window.scrollY >= bottom) {
+    document.querySelector(".skills .skill.html .progress-value").style.width = "40%";
+    document.querySelector(".skills .skill.css .progress-value").style.width = "70%";
+    document.querySelector(".skills .skill.js .progress-value").style.width = "90%";
+    document.querySelector(".skills .skill.py .progress-value").style.width = "80%";
+    document.querySelector(".skills .skill.php .progress-value").style.width = "10%";
+    document.querySelector(".skills .skill.mysql .progress-value").style.width = "70%";
+  }
+};
+
+/* end skills section */
