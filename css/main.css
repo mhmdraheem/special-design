@@ -278,11 +278,6 @@ a {
 }
 
 @media (max-width: 991px) {
-  .landing .header {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
   .landing .header .nav .nav-icon {
     display: block;
   }
@@ -320,6 +315,7 @@ a {
 }
 
 .landing .landing-txt {
+  width: 100%;
   text-align: center;
   position: absolute;
   top: 50%;
