@@ -214,5 +214,39 @@ window.onscroll = () => {
     document.querySelector(".skills .skill.mysql .progress-value").style.width = "70%";
   }
 };
-
 /* end skills section */
+
+/* start of gallery section */
+let items = document.querySelectorAll(".gallery .item img");
+items.forEach((item) => {
+  item.onclick = (event) => {
+    swal({
+      content: createDialogContent(event),
+      closeOnClickOutside: false,
+      closeOnEsc: false,
+      buttons: false,
+    });
+  };
+});
+
+function createDialogContent(event) {
+  let content = document.createElement("div");
+  content.classList = "alert-content";
+
+  let title = document.createElement("h3");
+  title.innerText = event.target.alt;
+  title.classList = "alert-head";
+
+  let img = document.createElement("img");
+  img.src = event.target.currentSrc;
+  img.classList = "alert-img";
+
+  let cancel = document.createElement("button");
+  cancel.classList = "alert-button";
+  cancel.onclick = () => swal.close();
+
+  content.append(cancel, title, img);
+
+  return content;
+}
+/* end of gallery section */

@@ -335,19 +335,28 @@ a {
   font-size: 20px;
 }
 
-.colorable {
+.landing .landing-txt span {
   color: var(--active-color);
 }
 /* end of landing section */
+
+.section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.section .head {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 50px;
+  color: var(--active-color);
+}
 
 /* start of about us */
 .about .container {
   display: flex;
   align-items: center;
-  padding-top: 50px;
-  padding-bottom: 50px;
   gap: 100px;
-  padding-bottom: 50px;
   background-color: white;
 }
 
@@ -374,15 +383,6 @@ a {
 /* start of skills */
 .skills {
   background-color: var(--bg-color);
-}
-.skills .container {
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
-.skills h2 {
-  text-align: center;
-  margin-bottom: 50px;
 }
 
 .skills .skill {
@@ -417,3 +417,80 @@ a {
   transition: 1s;
 }
 /* end of skills */
+
+/* start of gallery */
+.gallery {
+  background-color: white;
+}
+
+.gallery .items {
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.gallery .items .item {
+  border: 1px solid #ddd;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.gallery .items img {
+  width: 200px;
+  max-width: 100%;
+}
+
+.swal-modal {
+  width: 50%;
+}
+
+.swal-content {
+  padding: 0;
+  margin: 0;
+}
+
+.alert-content {
+  position: relative;
+  padding: 20px 20px 0 20px;
+}
+
+.alert-button {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+
+  width: 40px;
+  height: 40px;
+
+  border: none;
+  border-radius: 50%;
+  background-color: var(--active-color);
+
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alert-button::after {
+  content: "\f00d";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 800;
+  font-size: 25px;
+  color: white;
+}
+
+.alert-head {
+  margin-bottom: 20px;
+  color: var(--active-color);
+}
+
+.alert-img {
+  width: 100%;
+}
+/* end of gallery */
