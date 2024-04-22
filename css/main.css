@@ -370,9 +370,24 @@ a {
 }
 
 .about .text p {
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.7;
   color: var(--p-color);
+}
+
+@media (max-width: 767px) {
+  .about .container {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .about .text h2 {
+    text-align: center;
+  }
+
+  .about .text p {
+    text-align: center;
+  }
 }
 
 .about img {
@@ -447,6 +462,12 @@ a {
 
 .swal-modal {
   width: 50%;
+}
+
+@media (max-width: 767px) {
+  .swal-modal {
+    width: 80%;
+  }
 }
 
 .swal-content {
