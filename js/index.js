@@ -66,8 +66,21 @@ function activateColorSettingElement(colorElem) {
 
 var intervalId;
 function applyBackground(background) {
-  const bgImages = ["../img/01.jpg", "../img/02.jpg", "../img/03.jpg", "../img/04.jpg"];
+  let bgImages;
+  if (window.location.href.includes("github")) {
+    // images included in a github issue
+    bgImages = [
+      "https://i.ibb.co/LhgMVbq/01.jpg",
+      "https://i.ibb.co/tH96gj6/02.jpg",
+      "https://i.ibb.co/0tsv5LD/03.jpg",
+      "https://i.ibb.co/tcQffnV/04.jpg",
+    ];
+  } else {
+    bgImages = ["../img/01.jpg", "../img/02.jpg", "../img/03.jpg", "../img/04.jpg"];
+  }
+
   if (background.isRandom) {
+    landing.style.backgroundImage = `url(${bgImages[3]})`;
     intervalId = setInterval(() => {
       let randomIndex = Math.floor(Math.random() * 100) % bgImages.length;
       landing.style.backgroundImage = `url(${bgImages[randomIndex]})`;
