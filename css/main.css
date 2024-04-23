@@ -655,5 +655,48 @@ a {
   line-height: 1.5;
   color: var(--p-color);
 }
-
 /* end of timeline */
+
+/* start of features */
+.features {
+}
+
+.features .container {
+}
+
+.features .items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 50px;
+}
+
+.items .feature {
+  text-align: center;
+}
+
+.feature img {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.feature h3 {
+  font-size: 22px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.feature h3::after {
+  content: "";
+  width: 40px;
+  height: 4px;
+  background-color: var(--active-color);
+  position: absolute;
+  left: 50%;
+  bottom: -20px;
+  transform: translate(-50%, 0);
+}
+.feature p {
+  color: var(--p-color);
+  font-size: 16px;
+}
+/* end of features */
