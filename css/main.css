@@ -658,12 +658,6 @@ a {
 /* end of timeline */
 
 /* start of features */
-.features {
-}
-
-.features .container {
-}
-
 .features .items {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -700,3 +694,77 @@ a {
   font-size: 16px;
 }
 /* end of features */
+
+/* start of testimonials */
+.testimonials {
+  background-image: linear-gradient(90deg, var(--active-color) 50%, #333333 50%);
+}
+
+.testimonials h2 {
+  color: white;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 767px) {
+  .testimonials h2 {
+    text-align: center;
+  }
+}
+
+.testimonials .items {
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-width: 767px) {
+  .testimonials .items {
+    flex-direction: column;
+  }
+}
+
+.testimonials .items .testimonial {
+  background-color: white;
+  padding: 20px;
+}
+
+.testimonial > p {
+  line-height: 1.7;
+  font-size: 15px;
+  color: var(--p-color);
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.testimonial .profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.testimonial .profile .avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #dddddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--p-color);
+}
+
+.testimonial .profile .info h4 {
+  margin-bottom: 10px;
+}
+
+.testimonial .profile .info p {
+  color: var(--p-color);
+}
+
+@media (max-width: 991px) {
+  .testimonial .profile {
+    flex-direction: column;
+  }
+}
+/* end of testimonials */
