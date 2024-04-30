@@ -220,7 +220,7 @@ window.onscroll = () => {
 /* end skills section */
 
 /* start of gallery section */
-let items = document.querySelectorAll(".gallery .item img");
+let items = document.querySelectorAll(".gallery .items img");
 items.forEach((item) => {
   item.onclick = (event) => {
     swal({

@@ -425,18 +425,12 @@ a {
   gap: 15px;
 }
 
-.gallery .items .item {
-  border: 1px solid #ddd;
-  padding: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
 .gallery .items img {
   width: 200px;
   max-width: 100%;
+  cursor: pointer;
+  padding: 2px;
+  border: 1px solid #ccc;
 }
 
 .swal-modal {
