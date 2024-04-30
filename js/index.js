@@ -125,30 +125,20 @@ function activateShowBulletsSettingElement(showBulletsElem) {
 let visibilityBtn = settingsBar.querySelector(".visibility-btn");
 let gear = visibilityBtn.querySelector("i");
 visibilityBtn.onclick = () => {
-  let isVisible = settingsBar.classList.contains("visible");
-  if (isVisible) {
-    hideSettingsBar();
-  } else {
-    showSettingsBar();
-  }
+  settingsBar.classList.toggle("visible");
+  gear.classList.toggle("fa-spin");
 };
 
-function hideSettingsBar() {
-  settingsBar.classList.remove("visible");
-  gear.classList.remove("active");
-}
-
-function showSettingsBar() {
-  settingsBar.classList.add("visible");
-  gear.classList.add("active");
-}
-
 onClickOutside(settingsBar, () => {
-  let isVisible = settingsBar.classList.contains("visible");
-  if (isVisible) {
+  if (settingsBar.classList.contains("visible")) {
     hideSettingsBar();
   }
 });
+
+function hideSettingsBar() {
+  settingsBar.classList.remove("visible");
+  gear.classList.remove("fa-spin");
+}
 
 let colors = settingsBar.querySelectorAll(".color ul li");
 colors.forEach((color) => {

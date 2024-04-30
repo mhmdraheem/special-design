@@ -85,25 +85,6 @@ a {
 
 .settings-bar .visibility-btn i {
   font-size: 15px;
-  animation-name: rotation;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-play-state: paused;
-}
-
-.settings-bar .visibility-btn i.active {
-  animation-play-state: running;
-}
-
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 .settings-bar .setting {
