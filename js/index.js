@@ -1,18 +1,16 @@
-import { onClickOutside, rgbToHex } from "./components.js";
-import * as storage from "./storageManager.js";
-
+let intervalId;
 const settingsBar = document.querySelector(".settings-bar");
 const landing = document.querySelector(".landing");
 
 // apply website settings
-let savedSettings = storage.getSettings();
+let savedSettings = getSettings();
 if (savedSettings == null) {
   savedSettings = saveDefaultSettings();
 }
 
 function saveDefaultSettings() {
   let settings = getDefaultSettings();
-  storage.saveSettings(settings);
+  saveSettings(settings);
   return settings;
 }
 
@@ -64,7 +62,6 @@ function activateColorSettingElement(colorElem) {
   colorElem.classList.add("active");
 }
 
-var intervalId;
 function applyBackground(background) {
   let bgImages;
   if (window.location.href.includes("github")) {
@@ -84,7 +81,7 @@ function applyBackground(background) {
     intervalId = setInterval(() => {
       let randomIndex = Math.floor(Math.random() * 100) % bgImages.length;
       landing.style.backgroundImage = `url(${bgImages[randomIndex]})`;
-    }, 5000);
+    }, 1000);
   } else {
     clearInterval(intervalId);
     landing.style.backgroundImage = background.image;
@@ -146,7 +143,7 @@ colors.forEach((color) => {
     let colorHex = rgbToHex(color.style.backgroundColor);
     applyColor(colorHex);
     activateColorSettingElement(color);
-    storage.saveSetting("color", colorHex);
+    saveSetting("color", colorHex);
   };
 });
 
@@ -157,7 +154,7 @@ settingsBar.querySelectorAll(".backgrounds input").forEach((checkBox) => {
     background.image = background.isRandom ? "" : landing.style.backgroundImage;
 
     applyBackground(background);
-    storage.saveSetting("background", background);
+    saveSetting("background", background);
   };
 });
 
@@ -166,12 +163,12 @@ settingsBar.querySelectorAll(".show-bullets input").forEach((check) => {
     let isShowBullets = check.value === "true";
 
     applyShowBullets(isShowBullets);
-    storage.saveSetting("isShowBullets", isShowBullets);
+    saveSetting("isShowBullets", isShowBullets);
   };
 });
 
 settingsBar.querySelector(".reset-btn").onclick = () => {
-  storage.saveSettings(getDefaultSettings());
+  saveSettings(getDefaultSettings());
   location.reload();
 };
 /* end side bar */
@@ -253,3 +250,46 @@ function createDialogContent(event) {
   return content;
 }
 /* end of gallery section */
+
+/* start of utility functions */
+function saveSetting(settingName, settingValue) {
+  let settings = getSettings();
+  settings[settingName] = settingValue;
+
+  saveSettings(settings);
+}
+
+function saveSettings(settings) {
+  window.localStorage.settings = JSON.stringify(settings);
+}
+
+function getSettings() {
+  let settings = window.localStorage.settings;
+  return settings ? JSON.parse(window.localStorage.settings) : null;
+}
+
+function onClickOutside(element, callback) {
+  window.addEventListener("click", (event) => {
+    if (!element.contains(event.target)) {
+      callback(event);
+    }
+  });
+}
+
+function rgbToHex(rgb) {
+  rgb = rgb.slice(4, -1).split(",");
+  let r = +rgb[0];
+  let g = +rgb[1];
+  let b = +rgb[2];
+
+  r = r.toString(16);
+  g = g.toString(16);
+  b = b.toString(16);
+
+  if (r.length == 1) r = "0" + r;
+  if (g.length == 1) g = "0" + g;
+  if (b.length == 1) b = "0" + b;
+
+  return "#" + r + g + b;
+}
+/* end of utility functions */
