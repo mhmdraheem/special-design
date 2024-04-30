@@ -112,11 +112,13 @@ a {
   width: 15px;
   height: 15px;
   border-radius: 50%;
+  opacity: 0.5;
   cursor: pointer;
 }
 
 .settings-bar .setting .color ul li.active {
   outline: 3px solid white;
+  opacity: 1;
 }
 
 .settings-bar .setting .backgrounds input,

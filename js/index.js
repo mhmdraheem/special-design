@@ -207,8 +207,8 @@ onClickOutside(ul, (event) => {
 /* start skills section */
 
 window.onscroll = () => {
-  const { bottom } = document.querySelector(".skills").getBoundingClientRect();
-  if (window.scrollY >= bottom) {
+  let skills = document.querySelector(".skills");
+  if (window.scrollY > skills.offsetTop + skills.offsetHeight - window.innerHeight) {
     document.querySelector(".skills .skill.html .progress-value").style.width = "40%";
     document.querySelector(".skills .skill.css .progress-value").style.width = "70%";
     document.querySelector(".skills .skill.js .progress-value").style.width = "90%";
